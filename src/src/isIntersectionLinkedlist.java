@@ -48,13 +48,13 @@ public class isIntersectionLinkedlist {
 
     public static void main(String[] args) {
         /* Create linked list */
-        int[] vals = {-1, -2, 0, 1, 2, 3, 4, 5, 6, 7, 8};
+        int[] vals = {-1, -2, 0, 1, 2, 3, 4, 5};
         LinkedListNode l1head = AssortedMethods.createLinkedListFromArray(vals);
 
-        int[] vals2 = {12, 14, 15};
+        int[] vals2 = {12, 14, 15,19};
         LinkedListNode l2head = AssortedMethods.createLinkedListFromArray(vals2);
 
-        l2head.next.next = l1head.next.next.next;
+        l2head.next.next.next = l1head.next.next; //ths is where we test and set for the intersection point on each of the list nodes.
 
         System.out.println(l1head.printForward());
         System.out.println(l2head.printForward());
