@@ -3,13 +3,12 @@
     intersection is defined based on reference, not value. That is, if the kth node of the first linked list is the exact
     same node (by reference) as the jth node of the second linked list, then they are intersecting.
  */
-
-import packages.packages;
+import packages.LinkedListNode.AssortedMethods;
 import packages.packages.LinkedListNode;
 
 public class isIntersectionLinkedlist {
 
-    public LinkedListNode findIntersectionNode(LinkedListNode l1head, LinkedListNode l2head) {
+    public static LinkedListNode findIntersectionNode(LinkedListNode l1head, LinkedListNode l2head) {
 
         if (l1head == null && l2head == null) return null;
 
@@ -45,4 +44,28 @@ public class isIntersectionLinkedlist {
 
     }
 
+
+
+    public static void main(String[] args) {
+        /* Create linked list */
+        int[] vals = {-1, -2, 0, 1, 2, 3, 4, 5, 6, 7, 8};
+        LinkedListNode l1head = AssortedMethods.createLinkedListFromArray(vals);
+
+        int[] vals2 = {12, 14, 15};
+        LinkedListNode l2head = AssortedMethods.createLinkedListFromArray(vals2);
+
+        l2head.next.next = l1head.next.next.next;
+
+        System.out.println(l1head.printForward());
+        System.out.println(l2head.printForward());
+
+
+        LinkedListNode intersection = findIntersectionNode(l1head, l2head);
+
+        System.out.println(intersection.printForward());
+    }
+
 }
+
+// -1,    -2,    0,    1,    2,    3,    4,    5,    6,    7,    8
+//  12,    14,   15,
